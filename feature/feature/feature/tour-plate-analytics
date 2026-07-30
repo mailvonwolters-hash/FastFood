@@ -1,0 +1,17 @@
+Please build the Tour-Level Plate Balance & Tracking analytics module ("Teller-Bilanz pro Tour"):
+
+1. Tour Structure & Assignment:
+   - Group the ~130 total customers across 3 fixed delivery routes (Tour 1, Tour 2, Tour 3).
+
+2. Weekly Tour Balance Aggregation:
+   - For each of the 3 tours, calculate the weekly net balance: (Total Plates Delivered - Total Plates Returned).
+   - Display a high-level summary dashboard for management showing:
+     - Net Balance per Tour (e.g., Tour 1: -4 Plates [Smooth], Tour 2: -38 Plates [High Deficit Alert]).
+     - Visual Status Badges: Green (Balanced/Smooth), Yellow (Minor Deficit), Red (Critical Loss).
+
+3. Initial Data Audit & Gap Detection (Implementation Phase):
+   - Include a "Smoothness / Audit Check" metric per tour displaying tracked vs. un-tracked customer stops (e.g., "Tour 3: 42/44 Kunden erfasst – 2 Lücken").
+   - Highlight un-tracked stops so drivers/admins can complete initial baseline inventory.
+
+4. Driver UI Integration:
+   - Maintain the fast +/- plate counter on the customer stop view, instantly syncing back to the tour-level summary.
