@@ -1,0 +1,20 @@
+Update the Kitchen Packing List Summary component ("Küchen-Packliste") to highlight total cooked meal volume FIRST before detailed breakdown:
+
+1. Top Level Banner (Total Cooked Meals Header):
+   - Display a large, bold summary banner at the top showing the ABSOLUTE TOTAL OF ALL MEALS to be cooked for the selected day across all tours.
+   - Show quick sub-totals for total M1, total M2, and total M3 right next to/under the grand total.
+
+2. Matrix Grid Layout (4 Columns):
+   - Columns: "M1" (Grüner Deckel), "M2" (Roter Deckel), "M3" (Blauer Deckel), "Gesamt".
+   - Rows (Left Side Labeling):
+     - Standard Portions (Default Packaging)
+     - Alu
+     - Alu 1/2
+     - 1/2
+     - 1 1/2
+     - Obst (Displays total daily count only in 'Gesamt' column)
+     - Joghurt (Displays total daily count only in 'Gesamt' column)
+
+3. Automatic Calculation & High Contrast Display:
+   - Sum up all meal cells from scanned tour sheets for the selected weekday.
+   - Ensure the total meal counter stands out clearly for kitchen personnel at a glance on tablets.
