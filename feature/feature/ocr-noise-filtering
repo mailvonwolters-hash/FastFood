@@ -1,0 +1,14 @@
+Please implement a relevance filter in the OCR parsing engine to discard non-tour handwritten noise:
+
+1. Tour-Relevant Content Definition:
+   - ONLY extract and process data essential for delivery execution:
+     - Customer/Stop identification (Name, Address, Stop number).
+     - Meal orders/quantities per weekday (e.g., "1", "M1", "M2", "1 SP", "1,5", "Alu", "KH" / Storniert).
+     - Direct delivery instructions (e.g., "Abstellen Garage", "Bitte klingeln", "Abholer").
+
+2. Noise Filtering (Ignorieren unrelevanter Notizen):
+   - Ignore and strip out any random, non-logistical handwritten marginal notes, administrative scribbles, internal calculation scratchpads, or personal birthday/reminder notes.
+   - Do NOT create separate UI fields or stops for unstructured freeform scribbles that do not belong to a specific customer or meal quantity cell.
+
+3. Structured Output:
+   - Ensure the extracted tour object contains clean customer objects containing only verified delivery metadata and daily meal metrics.
