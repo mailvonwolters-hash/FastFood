@@ -1,0 +1,13 @@
+Please implement client-side image compression in the multi-page document scanner component to fix the "AI Gateway 413: Downloaded image content cannot exceed 30MB" error:
+
+1. In-Browser Compression:
+   - Before submitting captured or selected tour sheet photos to the AI parsing API, scale and compress each image on the client side using HTML5 Canvas or browser-image-compression.
+   - Max image resolution: 1600px (width or height).
+   - Target JPEG quality: 0.75.
+   - Target maximum file size per image: ~300KB to 500KB.
+
+2. Progress Indicator:
+   - Display a visual feedback text during the batch processing (e.g., "Komprimiere Seite X von Y...").
+
+3. Quality Retention:
+   - Ensure the output resolution preserves full contrast and legibility of handwritten dates, numbers, and customer names for the downstream OCR model.
