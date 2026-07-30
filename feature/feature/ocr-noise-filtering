@@ -1,14 +1,19 @@
-Please implement a relevance filter in the OCR parsing engine to discard non-tour handwritten noise:
+Update the OCR relevance filter component to strictly process ONLY the following explicitly defined domain values and ignore everything else:
 
-1. Tour-Relevant Content Definition:
-   - ONLY extract and process data essential for delivery execution:
-     - Customer/Stop identification (Name, Address, Stop number).
-     - Meal orders/quantities per weekday (e.g., "1", "M1", "M2", "1 SP", "1,5", "Alu", "KH" / Storniert).
-     - Direct delivery instructions (e.g., "Abstellen Garage", "Bitte klingeln", "Abholer").
+1. ALLOWED DATA MATRIX & CODES (Strict Whitelist):
+   - Customer Identifiers: Name, Address, Stop Sequence.
+   - Portion Quantities: "1", "2", "1/2", "1 1/2".
+   - Packaging Rules: "Alu", "kein Alu".
+   - Dessert / Extra Items: "Joghurt", "Obst", "KN" (Kein Nachtisch), "kein Pudding".
+   - Menu Plan (Speiseplan) Status:
+     - "SP" = Customer needs new menu plan.
+     - "kein SP" = Customer does NOT want menu plan (orders via phone).
+   - Delivery Absence / Status: "KH" (Krankenhaus), "Keine Belieferung", "Storno".
+   - Allowed Action Keywords ONLY: "Klingeln", "warten", "schlüssel".
 
-2. Noise Filtering (Ignorieren unrelevanter Notizen):
-   - Ignore and strip out any random, non-logistical handwritten marginal notes, administrative scribbles, internal calculation scratchpads, or personal birthday/reminder notes.
-   - Do NOT create separate UI fields or stops for unstructured freeform scribbles that do not belong to a specific customer or meal quantity cell.
+2. STRICT NOISE FILTER (Ignore Rule):
+   - DISCARD ANY TEXT, note, or scribble that does not match the items above.
+   - Ignore all internal calculations, payment notes, birthday reminders, or unlisted freeform handwritten text.
 
-3. Structured Output:
-   - Ensure the extracted tour object contains clean customer objects containing only verified delivery metadata and daily meal metrics.
+3. Data Output:
+   - Map only verified whitelisted entries into the final customer delivery profile.
